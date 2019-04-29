@@ -41,9 +41,9 @@ Visit Tinkl.it API Documentation (https://api.tinkl.it/doc/).
 
 ### via FTP
 
-1. Download [tinkl-it-woocommerce-payment-gateway.zip.zip].
+1. Download [tinkl-it-woocommerce-payment-gateway.zip].
 
-2. Unzip and upload **tinkl-it-woocommerce-payment-gateway.zip/** directory to **/wp-content/plugins/** through FTP.
+2. Unzip and upload **tinkl-it-woocommerce-payment-gateway/** directory to **/wp-content/plugins/** through FTP.
 
 3. Activate the plugin through the **Plugins** menu in WordPress.
 
