@@ -1,4 +1,4 @@
-#Tinkl.it gateway for woocommerce
+##Tinkl.it gateway for woocommerce
 Bitcoin gateway to accept bitcoin at Woocommerce store with Tinkl.it API.
 
 Read the plugin installation instructions below to get started with Tinkl.it payment gateway on your woocommerce store.
