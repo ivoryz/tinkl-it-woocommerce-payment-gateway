@@ -3,8 +3,8 @@ namespace Tinklit;
 
 class Tinklit
 {
-    const VERSION           = '1.2';
-    const USER_AGENT_ORIGIN = 'Tinklit PHP Library';
+    const VERSION           = '1.2.2';
+    const USER_AGENT_ORIGIN = 'Tinkl.it PHP Library';
 
     public static $client_id  = '';
 	public static $token  = '';
@@ -17,7 +17,7 @@ class Tinklit
         if (isset($authentication['client_id']))
             self::$client_id = $authentication['client_id'];
 		
-		if (isset($authentication['token']))
+	if (isset($authentication['token']))
             self::$token = $authentication['token'];
 
         if (isset($authentication['environment']))
@@ -31,7 +31,6 @@ class Tinklit
     {
         try {
             self::request('/auth/test', 'GET', array(), $authentication);
-
             return true;
         } catch (\Exception $e) {
             return get_class($e) . ': ' . $e->getMessage();
@@ -40,17 +39,17 @@ class Tinklit
 
     public static function request($url, $method = 'POST', $params = array(), $authentication = array())
     {
-		$client_id  = isset($authentication['client_id']) ? $authentication['client_id'] : self::$client_id;
-		$token  = isset($authentication['token']) ? $authentication['token'] : self::$token;
+	$client_id  = isset($authentication['client_id']) ? $authentication['client_id'] : self::$client_id;
+	$token  = isset($authentication['token']) ? $authentication['token'] : self::$token;
         $environment = isset($authentication['environment']) ? $authentication['environment'] : self::$environment;
         $user_agent  = isset($authentication['user_agent']) ? $authentication['user_agent'] : (isset(self::$user_agent) ? self::$user_agent : (self::USER_AGENT_ORIGIN . ' v' . self::VERSION));
         $curlopt_ssl_verifypeer = isset($authentication['curlopt_ssl_verifypeer']) ? $authentication['curlopt_ssl_verifypeer'] : self::$curlopt_ssl_verifypeer;
 
-		# Check if credentials was passed
+	# Check if credentials was passed
         if (empty($client_id))
             \Tinklit\Exception::throwException(400, array('reason' => 'CredentialsMissing', 'message' => 'Set up your Client ID on plugin\'s settings'));
 		
-		if (empty($token))
+	if (empty($token))
             \Tinklit\Exception::throwException(400, array('reason' => 'CredentialsMissing', 'message' => 'Set up your Token on plugin\'s settings'));
 
         # Check if right environment passed
@@ -87,12 +86,12 @@ class Tinklit
         $response    = json_decode(curl_exec($curl), TRUE);
         $http_status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 		
-		/*
-		if ($http_status === 200)
+	/*
+	if ($http_status === 200)
             return $response;
         else
             \Tinklit\Exception::throwException($http_status, $response);
-		*/
+	*/
 		
         if (array_key_exists('guid', $response)){
             return $response;

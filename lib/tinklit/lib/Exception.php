@@ -44,7 +44,7 @@ class Exception
                     case 'OrderNotFound': throw new OrderNotFound(self::formatError($error));
                     default: throw new NotFound(self::formatError($error));
                 }
-			case 406:
+	   case 406:
                 switch ($reason) {
                     case 'PageNotAcceptable': throw new PageNotAcceptable(self::formatError($error));
                     case 'RecordNotAcceptable': throw new RecordNotAcceptable(self::formatError($error));
